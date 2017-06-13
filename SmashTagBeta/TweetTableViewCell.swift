@@ -26,7 +26,7 @@ class TweetTableViewCell: UITableViewCell {
     // we just update our outlets using this method
     
     private func updateUI() {
-        updateTweetText() //Updates text with the proper colors
+        colorizeTweetText() //Updates text with the proper colors
         tweetUserLabel?.text = tweet?.user.description
         if let profileImageURL = tweet?.user.profileImageURL {
             // FIXME: blocks main thread
@@ -49,7 +49,7 @@ class TweetTableViewCell: UITableViewCell {
         }
     }
     
-    private func updateTweetText() {
+    private func colorizeTweetText() {
         if let tweetString = tweet?.text {
             let hashtags = tweet?.hashtags
             let userMentions = tweet?.userMentions
