@@ -84,10 +84,8 @@ class TweetTableViewCell: UITableViewCell {
                     stylizedString.addAttribute(NSForegroundColorAttributeName, value: linkColor , range: range)
                 }
             }
-            
             tweetTextLabel?.attributedText = stylizedString
         }
-        
     }
     
     
