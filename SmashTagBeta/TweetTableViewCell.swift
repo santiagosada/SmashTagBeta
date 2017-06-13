@@ -55,9 +55,9 @@ class TweetTableViewCell: UITableViewCell {
             let userMentions = tweet?.userMentions
             let links =  tweet?.urls
             
-            let hashtagColor = UIColor(red:0.58, green:0.65, blue:0.65, alpha:1.0)  //light gray
+            let hashtagColor = UIColor(red:0.61, green:0.35, blue:0.71, alpha:1.0)  //light purple
             let userMentionColor = UIColor(red:0.20, green:0.60, blue:0.86, alpha:1.0) //blue
-            let linkColor = UIColor(red:0.20, green:0.29, blue:0.37, alpha:1.0) //midnight gray
+            let linkColor = UIColor(red:0.58, green:0.65, blue:0.65, alpha:1.0) //light gray
             
             let stylizedString = NSMutableAttributedString.init(string: tweetString)
             
@@ -84,11 +84,8 @@ class TweetTableViewCell: UITableViewCell {
                     stylizedString.addAttribute(NSForegroundColorAttributeName, value: linkColor , range: range)
                 }
             }
-            
-            
             tweetTextLabel?.attributedText = stylizedString
         }
-        
     }
     
     
