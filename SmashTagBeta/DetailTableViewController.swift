@@ -10,24 +10,32 @@ import UIKit
 
 class DetailTableViewController: UITableViewController {
     
-    private var cells = [Array<DetailCell>]()
+    private var cells = Array(repeating: [DetailCell](), count: 4)
     
     
     var tweet: Tweet!{
         didSet{
-            let detailCell = DetailCell(content: .mention("@AlonsoGMolina"))
-            cells[0][0] = detailCell
+            //let detailCell = DetailCell(content: .mention("@AlonsoGMolina"))
+            //cells[0][0] = detailCell
+            print("Tweet set")
             for (index, media) in tweet.media.enumerated() {
-                cells[0][index] = DetailCell(content: .image(media.url.absoluteString))
+                cells[0].append( DetailCell(content: .image(media.url.absoluteString)) )
+                print(media.url.absoluteString)
             }
             for (index, hashtag) in tweet.hashtags.enumerated() {
-                cells[1][index] = DetailCell(content: .mention(hashtag.keyword))
+                //cells[1][index] = DetailCell(content: .mention(hashtag.keyword))
+                cells[1].append( DetailCell(content: .mention(hashtag.keyword)) )
+                print(hashtag.keyword)
             }
             for (index, mention) in tweet.userMentions.enumerated() {
-                cells[2][index] = DetailCell(content: .mention(mention.keyword))
+                //cells[2][index] = DetailCell(content: .mention(mention.keyword))
+                cells[2].append( DetailCell(content: .mention(mention.keyword)) )
+                print(mention.keyword)
             }
             for (index, url) in tweet.urls.enumerated() {
-                cells[3][index] = DetailCell(content: .url( url.keyword ))
+                //cells[3][index] = DetailCell(content: .url( url.keyword ))
+                cells[3].append( DetailCell(content: .url( url.keyword )) )
+                print(url.keyword)
             }
         }
     }

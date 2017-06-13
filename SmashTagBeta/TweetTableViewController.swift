@@ -157,7 +157,8 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate
         let destinationVC = segue.destination
         if let destinationDetail = destinationVC as? DetailTableViewController{
             if let sender = sender as? TweetTableViewCell{
-                destinationDetail.tweet = sender.tweet
+                print(sender.tweet!)
+                destinationDetail.tweet = sender.tweet!
             }
         }
     }
