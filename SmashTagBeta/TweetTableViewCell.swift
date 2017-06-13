@@ -15,6 +15,7 @@ class TweetTableViewCell: UITableViewCell {
     @IBOutlet weak var tweetCreatedLabel: UILabel!
     @IBOutlet weak var tweetUserLabel: UILabel!
     @IBOutlet weak var tweetTextLabel: UILabel!
+    
     // public API of this UITableViewCell subclass
     // each row in the table has its own instance of this class
     // and each instance will have its own tweet to show
@@ -33,7 +34,7 @@ class TweetTableViewCell: UITableViewCell {
                 tweetProfileImageView?.image = UIImage(data: imageData)
             }
         } else {
-        tweetProfileImageView?.image = nil
+            tweetProfileImageView?.image = nil
         }
         if let created = tweet?.created {
             let formatter = DateFormatter()
@@ -44,7 +45,7 @@ class TweetTableViewCell: UITableViewCell {
             }
             tweetCreatedLabel?.text = formatter.string(from: created)
         } else {
-        tweetCreatedLabel?.text = nil
+            tweetCreatedLabel?.text = nil
         }
     }
     
