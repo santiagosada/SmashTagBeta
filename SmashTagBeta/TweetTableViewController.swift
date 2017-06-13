@@ -156,8 +156,8 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination
         if let destinationDetail = destinationVC as? DetailTableViewController{
-            if let sender = sender as? Tweet{
-                destinationDetail.tweet = sender
+            if let sender = sender as? TweetTableViewCell{
+                destinationDetail.tweet = sender.tweet
             }
         }
     }

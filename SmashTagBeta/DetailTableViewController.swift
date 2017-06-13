@@ -10,8 +10,13 @@ import UIKit
 
 class DetailTableViewController: UITableViewController {
     
+    private var cells = [Array<DetailCell>]()
+    
+    
     var tweet: Tweet!{
         didSet{
+            let detailCell = DetailCell(content: .mention("@AlonsoGMolina"))
+            cells[0][0] = detailCell
             for (index, media) in tweet.media.enumerated() {
                 cells[0][index] = DetailCell(content: .image(media.url.absoluteString))
             }
@@ -49,7 +54,7 @@ class DetailTableViewController: UITableViewController {
         var content: DetailCellContentType
     }
     
-    private var cells = [Array<DetailCell>]() //CAMBIAR: inicializar con 4 secciones
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,12 +77,11 @@ class DetailTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 4 //AAAAAAAHAHAHAH
+        return cells.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return cells[section].count
-        return 3
+        return cells[section].count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
