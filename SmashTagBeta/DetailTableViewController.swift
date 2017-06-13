@@ -9,13 +9,44 @@
 import UIKit
 
 class DetailTableViewController: UITableViewController {
+    
+    var tweet: Tweet!{
+        didSet{
+            for (index, media) in tweet.media.enumerated() {
+                cells[0][index] = DetailCell(content: .image(media))
+            }
+            for (index, hashtag) in tweet.hashtags.enumerated() {
+                cells[1][index] = DetailCell(content: .mention(hashtag.keyword))
+            }
+            for (index, mention) in tweet.userMentions.enumerated() {
+                cells[2][index] = DetailCell(content: .mention(mention.keyword))
+            }
+            for (index, url) in tweet.urls.enumerated() {
+                cells[3][index] = DetailCell(content: .url( URL(fileURLWithPath: url.keyword) ))
+            }
+        }
+    }
+    
+    enum DetailCellContentType{
+        case image(MediaItem)
+        case mention(String)
+        case url(URL)
+    }
+    
+    struct DetailCell{
+        var content: DetailCellContentType
+    }
+    
+    var cells = [Array<DetailCell>]() //CAMBIAR: inicializar con 4 secciones
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        
+        tableView.estimatedRowHeight = tableView.rowHeight
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
@@ -29,15 +60,13 @@ class DetailTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 4 //AAAAAAAHAHAHAH
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return cells[section].count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
@@ -45,7 +74,6 @@ class DetailTableViewController: UITableViewController {
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
