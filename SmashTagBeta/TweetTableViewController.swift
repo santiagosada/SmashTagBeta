@@ -53,12 +53,15 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate
     // a) we ignore tweets that come back from other than our last request
     // b) when we want to refresh, we only get tweets newer than our last request
     private var lastTwitterRequest: Request?
+   
     // takes the searchText part of our Model
     // and fires off a fetch for matching Tweets
     // when they come back (if they're still relevant)
     // we update our tweets array
     // and then let the table view know that we added a section
     // (it will then call our UITableViewDataSource to get what it needs)
+    
+    
     private func searchForTweets() {
         // "lastTwitterRequest?.newer ??" was added after lecture for REFRESHING
         if let request = lastTwitterRequest?.newer ?? twitterRequest() {
@@ -91,18 +94,19 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate
         tableView.rowHeight = UITableViewAutomaticDimension
         // the row height could alternatively be set
         // using the UITableViewDelegate method heightForRowAt
-        searchText = "#bowtie"
+        //searchText = "#bowtie"
     }
     
     // MARK: Search Text Field
     // set ourself to be the UITextFieldDelegate
     // so that we can get textFieldShouldReturn sent to us
+    
     @IBOutlet weak var searchTextField: UITextField! {
         didSet {
             searchTextField.delegate = self
         }
     }
-    
+
     
     
     // when the return (i.e. Search) button is pressed in the keyboard

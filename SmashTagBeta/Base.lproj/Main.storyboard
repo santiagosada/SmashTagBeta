@@ -18,9 +18,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <textField key="tableHeaderView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search Twitter" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" id="p7w-wO-Oa8">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="twitter" returnKeyType="search"/>
+                        </textField>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Tweet" rowHeight="123" id="O5m-2L-Umh" customClass="TweetTableViewCell" customModule="SmashTagBeta" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="123"/>
+                                <rect key="frame" x="0.0" y="58" width="375" height="123"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O5m-2L-Umh" id="RPo-ga-NOh">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="122.5"/>
@@ -87,6 +94,10 @@
                             <outlet property="delegate" destination="6ao-lJ-S0u" id="3Tv-9Y-D6X"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="SearchTextField" destination="p7w-wO-Oa8" id="tdG-sn-kgD"/>
+                        <outlet property="searchTextField" destination="p7w-wO-Oa8" id="7c5-uN-Toi"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q9p-Zh-Z9W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
