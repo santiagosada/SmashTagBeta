@@ -10,6 +10,8 @@ import UIKit
 
 class TextMentionTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var TextMentionLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
