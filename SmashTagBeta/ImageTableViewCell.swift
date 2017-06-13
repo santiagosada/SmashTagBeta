@@ -13,8 +13,7 @@ class ImageTableViewCell: UITableViewCell {
     @IBOutlet weak var TweetDetailImageView: UIImageView!
     
     func setImage(data: Data){
-        var newImage = UIImage(data: data)
-        //TweetDetailImageView.image.
+        TweetDetailImageView.image = UIImage(data: data)
     }
     
     override func awakeFromNib() {
