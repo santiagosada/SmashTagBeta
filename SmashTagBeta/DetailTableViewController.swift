@@ -13,7 +13,7 @@ class DetailTableViewController: UITableViewController {
     var tweet: Tweet!{
         didSet{
             for (index, media) in tweet.media.enumerated() {
-                cells[0][index] = DetailCell(content: .image(media))
+                cells[0][index] = DetailCell(content: .image(media.url.absoluteString))
             }
             for (index, hashtag) in tweet.hashtags.enumerated() {
                 cells[1][index] = DetailCell(content: .mention(hashtag.keyword))
@@ -22,22 +22,34 @@ class DetailTableViewController: UITableViewController {
                 cells[2][index] = DetailCell(content: .mention(mention.keyword))
             }
             for (index, url) in tweet.urls.enumerated() {
-                cells[3][index] = DetailCell(content: .url( URL(fileURLWithPath: url.keyword) ))
+                cells[3][index] = DetailCell(content: .url( url.keyword ))
             }
         }
     }
     
-    enum DetailCellContentType{
-        case image(MediaItem)
+    private enum DetailCellContentType{
+        case image(String)
         case mention(String)
-        case url(URL)
+        case url(String)
+        
+        func getContent() -> String{
+            switch self{
+            case .image(let text):
+                return text
+            case .mention(let text):
+                return text
+            case .url(let text):
+                return text
+            }
+        }
+        
     }
     
-    struct DetailCell{
+    private struct DetailCell{
         var content: DetailCellContentType
     }
     
-    var cells = [Array<DetailCell>]() //CAMBIAR: inicializar con 4 secciones
+    private var cells = [Array<DetailCell>]() //CAMBIAR: inicializar con 4 secciones
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,13 +76,24 @@ class DetailTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cells[section].count
+        //return cells[section].count
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TextMention", for: indexPath)
 
-        // Configure the cell...
+        let detailCell = cells[indexPath.section][indexPath.row]
+        
+        if let imageCell = cell as? ImageTableViewCell{
+            let url = URL(fileURLWithPath: detailCell.content.getContent())
+            if let data = try? Data(contentsOf: url){
+                imageCell.setImage(data: data)
+            }
+        }
+        if let mentionCell = cell as? TextMentionTableViewCell{
+            mentionCell.setMentionText(detailCell.content.getContent())
+        }
 
         return cell
     }

@@ -12,6 +12,10 @@ class TextMentionTableViewCell: UITableViewCell {
 
     @IBOutlet weak var TextMentionLabel: UILabel!
     
+    func setMentionText(_ text: String){
+        TextMentionLabel.text = text
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
