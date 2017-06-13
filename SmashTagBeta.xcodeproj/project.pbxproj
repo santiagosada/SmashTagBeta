@@ -18,6 +18,7 @@
 		DE82B8C31EEF6EB700D1C208 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE82B8BD1EEF6EB700D1C208 /* Request.swift */; };
 		DE82B8C41EEF6EB700D1C208 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE82B8BE1EEF6EB700D1C208 /* Tweet.swift */; };
 		DE82B8C51EEF6EB700D1C208 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE82B8BF1EEF6EB700D1C208 /* User.swift */; };
+		E23985701EF034BB001070B2 /* TweetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E239856F1EF034BB001070B2 /* TweetTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		DE82B8BD1EEF6EB700D1C208 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		DE82B8BE1EEF6EB700D1C208 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		DE82B8BF1EEF6EB700D1C208 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E239856F1EF034BB001070B2 /* TweetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				DE82B8B31EEF6E6B00D1C208 /* Info.plist */,
 				DE82B8C61EEF6ED300D1C208 /* Supporting Files */,
 				DE82B8AB1EEF6E6B00D1C208 /* SmashTagBeta.xcdatamodeld */,
+				E239856F1EF034BB001070B2 /* TweetTableViewController.swift */,
 			);
 			path = SmashTagBeta;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE82B8C31EEF6EB700D1C208 /* Request.swift in Sources */,
+				E23985701EF034BB001070B2 /* TweetTableViewController.swift in Sources */,
 				DE82B8C11EEF6EB700D1C208 /* MediaItem.swift in Sources */,
 				DE82B8C41EEF6EB700D1C208 /* Tweet.swift in Sources */,
 				DE82B8C51EEF6EB700D1C208 /* User.swift in Sources */,
