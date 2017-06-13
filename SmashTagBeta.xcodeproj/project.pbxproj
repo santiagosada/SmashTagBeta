@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE2DC7491EF0348700B4B147 /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2DC7481EF0348700B4B147 /* TweetTableViewCell.swift */; };
 		DE82B8A51EEF6E6B00D1C208 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE82B8A41EEF6E6B00D1C208 /* AppDelegate.swift */; };
 		DE82B8AA1EEF6E6B00D1C208 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE82B8A81EEF6E6B00D1C208 /* Main.storyboard */; };
 		DE82B8AD1EEF6E6B00D1C208 /* SmashTagBeta.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DE82B8AB1EEF6E6B00D1C208 /* SmashTagBeta.xcdatamodeld */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DE2DC7481EF0348700B4B147 /* TweetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
 		DE82B8A11EEF6E6B00D1C208 /* SmashTagBeta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmashTagBeta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE82B8A41EEF6E6B00D1C208 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE82B8A91EEF6E6B00D1C208 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 			children = (
 				DE82B8B91EEF6EB700D1C208 /* Twitter */,
 				DE82B8A81EEF6E6B00D1C208 /* Main.storyboard */,
+				DE2DC7481EF0348700B4B147 /* TweetTableViewCell.swift */,
 				DE82B8AE1EEF6E6B00D1C208 /* Assets.xcassets */,
 				DE82B8B31EEF6E6B00D1C208 /* Info.plist */,
 				DE82B8C61EEF6ED300D1C208 /* Supporting Files */,
@@ -179,6 +182,7 @@
 				DE82B8AD1EEF6E6B00D1C208 /* SmashTagBeta.xcdatamodeld in Sources */,
 				DE82B8A51EEF6E6B00D1C208 /* AppDelegate.swift in Sources */,
 				DE82B8C21EEF6EB700D1C208 /* NSDictionary+KeyPathConvenience.swift in Sources */,
+				DE2DC7491EF0348700B4B147 /* TweetTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
