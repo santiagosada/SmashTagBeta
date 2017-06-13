@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		DE82B8A51EEF6E6B00D1C208 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE82B8A41EEF6E6B00D1C208 /* AppDelegate.swift */; };
-		DE82B8A71EEF6E6B00D1C208 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE82B8A61EEF6E6B00D1C208 /* ViewController.swift */; };
 		DE82B8AA1EEF6E6B00D1C208 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE82B8A81EEF6E6B00D1C208 /* Main.storyboard */; };
 		DE82B8AD1EEF6E6B00D1C208 /* SmashTagBeta.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DE82B8AB1EEF6E6B00D1C208 /* SmashTagBeta.xcdatamodeld */; };
 		DE82B8AF1EEF6E6B00D1C208 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE82B8AE1EEF6E6B00D1C208 /* Assets.xcassets */; };
@@ -24,7 +23,6 @@
 /* Begin PBXFileReference section */
 		DE82B8A11EEF6E6B00D1C208 /* SmashTagBeta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmashTagBeta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE82B8A41EEF6E6B00D1C208 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DE82B8A61EEF6E6B00D1C208 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DE82B8A91EEF6E6B00D1C208 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DE82B8AC1EEF6E6B00D1C208 /* SmashTagBeta.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SmashTagBeta.xcdatamodel; sourceTree = "<group>"; };
 		DE82B8AE1EEF6E6B00D1C208 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -69,7 +67,6 @@
 			isa = PBXGroup;
 			children = (
 				DE82B8B91EEF6EB700D1C208 /* Twitter */,
-				DE82B8A61EEF6E6B00D1C208 /* ViewController.swift */,
 				DE82B8A81EEF6E6B00D1C208 /* Main.storyboard */,
 				DE82B8AE1EEF6E6B00D1C208 /* Assets.xcassets */,
 				DE82B8B31EEF6E6B00D1C208 /* Info.plist */,
@@ -175,7 +172,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE82B8A71EEF6E6B00D1C208 /* ViewController.swift in Sources */,
 				DE82B8C31EEF6EB700D1C208 /* Request.swift in Sources */,
 				DE82B8C11EEF6EB700D1C208 /* MediaItem.swift in Sources */,
 				DE82B8C41EEF6EB700D1C208 /* Tweet.swift in Sources */,
@@ -346,6 +342,7 @@
 				DE82B8B81EEF6E6B00D1C208 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
