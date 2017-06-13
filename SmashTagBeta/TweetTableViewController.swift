@@ -44,7 +44,7 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate
     
     private func twitterRequest() -> Request? {
         if let query = searchText, !query.isEmpty {
-            return Twitter.Request(search: query, count: 100)
+            return Request(search: query, count: 100)
         }
         return nil
     }
@@ -52,7 +52,7 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate
     // we track this so that
     // a) we ignore tweets that come back from other than our last request
     // b) when we want to refresh, we only get tweets newer than our last request
-    private var lastTwitterRequest: Twitter.Request?
+    private var lastTwitterRequest: Request?
     // takes the searchText part of our Model
     // and fires off a fetch for matching Tweets
     // when they come back (if they're still relevant)
@@ -91,6 +91,7 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate
         tableView.rowHeight = UITableViewAutomaticDimension
         // the row height could alternatively be set
         // using the UITableViewDelegate method heightForRowAt
+        searchText = "#bowtie"
     }
     
     // MARK: Search Text Field
