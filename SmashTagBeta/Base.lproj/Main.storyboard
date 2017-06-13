@@ -138,14 +138,19 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="68.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3la-Bu-794">
-                                            <rect key="frame" x="8" y="24" width="33" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3la-Bu-794">
+                                            <rect key="frame" x="8" y="8" width="359" height="52.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="3la-Bu-794" secondAttribute="trailing" id="Qie-zJ-T3n"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="3la-Bu-794" secondAttribute="leading" id="iAO-Y8-Tgg"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="3la-Bu-794" secondAttribute="bottom" id="if9-uf-pEu"/>
+                                        <constraint firstAttribute="topMargin" secondItem="3la-Bu-794" secondAttribute="top" id="oh5-kg-zF6"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="TextMentionLabel" destination="3la-Bu-794" id="f9M-oF-zeq"/>
