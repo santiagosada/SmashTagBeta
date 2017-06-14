@@ -172,6 +172,38 @@
             </objects>
             <point key="canvasLocation" x="1752.8" y="114.69265367316342"/>
         </scene>
+        <!--Image View Controller-->
+        <scene sceneID="l8a-7k-uKw">
+            <objects>
+                <viewController id="qC8-Dp-l9r" customClass="ImageViewController" customModule="SmashTagBeta" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="82y-ni-zxh"/>
+                        <viewControllerLayoutGuide type="bottom" id="gxR-rB-jCs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uJi-Ru-alr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GPu-Zs-stl">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GPu-Zs-stl" firstAttribute="top" secondItem="uJi-Ru-alr" secondAttribute="top" id="5gg-3P-tG0"/>
+                            <constraint firstAttribute="trailing" secondItem="GPu-Zs-stl" secondAttribute="trailing" id="Bxm-EQ-WT5"/>
+                            <constraint firstItem="GPu-Zs-stl" firstAttribute="leading" secondItem="uJi-Ru-alr" secondAttribute="leading" id="HcG-jd-Ubx"/>
+                            <constraint firstItem="GPu-Zs-stl" firstAttribute="bottom" secondItem="gxR-rB-jCs" secondAttribute="top" id="qqm-Al-iYT"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="scrollView" destination="GPu-Zs-stl" id="Cvb-7k-XeB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GXo-dv-Bb4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2623.1999999999998" y="114.69265367316342"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="znx-J2-Az7">
             <objects>
