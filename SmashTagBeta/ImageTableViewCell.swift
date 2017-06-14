@@ -12,8 +12,12 @@ class ImageTableViewCell: UITableViewCell {
 
     @IBOutlet weak var TweetDetailImageView: UIImageView!
     
-    func setImage(data: Data){
-        TweetDetailImageView.image = UIImage(data: data)
+    var imageURL: URL!{
+        didSet{
+            if let data = try? Data(contentsOf: imageURL){
+                TweetDetailImageView.image = UIImage(data: data)
+            }
+        }
     }
     
     override func awakeFromNib() {

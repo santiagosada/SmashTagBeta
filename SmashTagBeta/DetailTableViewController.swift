@@ -99,8 +99,7 @@ class DetailTableViewController: UITableViewController {
             cell = tableView.dequeueReusableCell(withIdentifier: "Image", for: indexPath)
             if let imageCell = cell as? ImageTableViewCell{
                 let url = URL(string: cellContent.content.get())!
-                let data = try? Data(contentsOf: url)
-                imageCell.setImage(data: data!)
+                imageCell.imageURL = url
             }
         }
             
@@ -125,9 +124,17 @@ class DetailTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let segueIdentifiers = ["search", "safari"]
+        let segueIdentifiers = ["search", "openSafari"]
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination
+        if let imageVC = destinationVC as? ImageViewController{
+            if let cell = sender as? ImageTableViewCell{
+                imageVC.imageURL = cell.imageURL
+            }
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.
