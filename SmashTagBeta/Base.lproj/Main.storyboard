@@ -118,14 +118,19 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="131"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QLE-3q-ysE" id="eju-2a-6lf">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="130.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="131"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Iy-EP-cYG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="129"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Iy-EP-cYG">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="131"/>
                                         </imageView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="5Iy-EP-cYG" firstAttribute="leading" secondItem="eju-2a-6lf" secondAttribute="leading" id="Idh-Ol-5Fq"/>
+                                        <constraint firstAttribute="trailing" secondItem="5Iy-EP-cYG" secondAttribute="trailing" id="S1w-7L-orc"/>
+                                        <constraint firstItem="5Iy-EP-cYG" firstAttribute="top" secondItem="eju-2a-6lf" secondAttribute="top" id="f0I-mf-FBM"/>
+                                        <constraint firstItem="5Iy-EP-cYG" firstAttribute="centerY" secondItem="eju-2a-6lf" secondAttribute="centerY" id="xV2-PC-L5D"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="TweetDetailImageView" destination="5Iy-EP-cYG" id="Yeg-yA-QPU"/>
