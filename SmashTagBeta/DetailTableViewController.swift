@@ -37,12 +37,15 @@ class DetailTableViewController: UITableViewController {
     
     private enum DetailCellContentType{
         case image(String)
+        case hashtag(String)
         case mention(String)
         case url(String)
         
         func get() -> String{
             switch self{
             case .image(let text):
+                return text
+            case .hashtag(let text):
                 return text
             case .mention(let text):
                 return text
@@ -109,6 +112,20 @@ class DetailTableViewController: UITableViewController {
         }
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let sectionTitles = ["Media", "Hashtags", "Mentions", "URLs"]
+        if !cells[section].isEmpty{
+            return sectionTitles[section]
+        }
+        else{
+            return nil
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let segueIdentifiers = ["search", "safari"]
     }
     
 
