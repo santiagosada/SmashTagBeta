@@ -1,20 +1,19 @@
 //
-//  TextMentionTableViewCell.swift
+//  URLTableViewCell.swift
 //  SmashTagBeta
 //
-//  Created by Santiago Sada on 6/13/17.
+//  Created by Santiago Sada on 6/14/17.
 //  Copyright © 2017 MegaPizza. All rights reserved.
 //
 
 import UIKit
 
-class TextMentionTableViewCell: UITableViewCell {
+class URLTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var TextMentionLabel: UILabel!
+    @IBOutlet weak var ULRMentionLabel: UILabel!
     
-    
-    func setMentionText(_ text: String){
-        TextMentionLabel.text = text
+    func setURLText(_ text: String){
+        ULRMentionLabel.text = text
     }
     
     override func awakeFromNib() {
