@@ -76,17 +76,17 @@
 		DE82B8A31EEF6E6B00D1C208 /* SmashTagBeta */ = {
 			isa = PBXGroup;
 			children = (
-				DE82B8B91EEF6EB700D1C208 /* Twitter */,
 				DE82B8A81EEF6E6B00D1C208 /* Main.storyboard */,
 				DE2DC74A1EF04FBB00B4B147 /* ImageTableViewCell.swift */,
 				DE2DC74C1EF04FED00B4B147 /* TextMentionTableViewCell.swift */,
 				DE2DC7481EF0348700B4B147 /* TweetTableViewCell.swift */,
-				DE82B8AE1EEF6E6B00D1C208 /* Assets.xcassets */,
-				DE82B8B31EEF6E6B00D1C208 /* Info.plist */,
-				DE82B8C61EEF6ED300D1C208 /* Supporting Files */,
-				DE82B8AB1EEF6E6B00D1C208 /* SmashTagBeta.xcdatamodeld */,
 				E239856F1EF034BB001070B2 /* TweetTableViewController.swift */,
 				E23985711EF04F9E001070B2 /* DetailTableViewController.swift */,
+				DE82B8AB1EEF6E6B00D1C208 /* SmashTagBeta.xcdatamodeld */,
+				DE82B8B31EEF6E6B00D1C208 /* Info.plist */,
+				DE82B8AE1EEF6E6B00D1C208 /* Assets.xcassets */,
+				DE82B8C61EEF6ED300D1C208 /* Supporting Files */,
+				DE82B8B91EEF6EB700D1C208 /* Twitter */,
 			);
 			path = SmashTagBeta;
 			sourceTree = "<group>";
