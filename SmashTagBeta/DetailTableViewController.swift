@@ -10,58 +10,32 @@ import UIKit
 
 class DetailTableViewController: UITableViewController {
     
-    private var cells = Array(repeating: [DetailCell](), count: 4)
+    private var cellContents = Array(repeating: [String](), count: 4)
     
     
     var tweet: Tweet!{
         didSet{
             print("Tweet set")
             for media in tweet.media {
-                cells[0].append( DetailCell(content: .image(media.url.absoluteString)) )
+                cellContents[0].append( media.url.absoluteString )
                 print(media.url.absoluteString)
             }
             for hashtag in tweet.hashtags {
-                cells[1].append( DetailCell(content: .mention(hashtag.keyword)) )
+                cellContents[1].append( hashtag.keyword )
                 print(hashtag.keyword)
             }
             for mention in tweet.userMentions {
-                cells[2].append( DetailCell(content: .mention(mention.keyword)) )
+                cellContents[2].append( mention.keyword )
                 print(mention.keyword)
             }
             for url in tweet.urls {
-                cells[3].append( DetailCell(content: .url( url.keyword )) )
+                cellContents[3].append( url.keyword )
                 print(url.keyword)
             }
         }
     }
     
-    private enum DetailCellContentType{
-        case image(String)
-        case hashtag(String)
-        case mention(String)
-        case url(String)
-        
-        func get() -> String{
-            switch self{
-            case .image(let text):
-                return text
-            case .hashtag(let text):
-                return text
-            case .mention(let text):
-                return text
-            case .url(let text):
-                return text
-            }
-        }
-        
-    }
     
-    private struct DetailCell{
-        var content: DetailCellContentType
-    }
-    
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Uncomment the following line to preserve selection between presentations
@@ -83,22 +57,23 @@ class DetailTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return cells.count
+        return cellContents.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cells[section].count
+        return cellContents[section].count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell: UITableViewCell
-        let cellContent = cells[indexPath.section][indexPath.row]
+        let cellContent = cellContents[indexPath.section][indexPath.row]
         
         if indexPath.section == 0 {
             cell = tableView.dequeueReusableCell(withIdentifier: "Image", for: indexPath)
             if let imageCell = cell as? ImageTableViewCell{
-                let url = URL(string: cellContent.content.get())!
+                //let url = URL(string: cellContent.content.get())!
+                let url = URL(string: cellContent)!
                 imageCell.imageURL = url
             }
         }
@@ -106,7 +81,8 @@ class DetailTableViewController: UITableViewController {
         else{
             cell = tableView.dequeueReusableCell(withIdentifier: "TextMention", for: indexPath)
             if let mentionCell = cell as? TextMentionTableViewCell{
-                mentionCell.setMentionText(cellContent.content.get())
+                //mentionCell.setMentionText(cellContent.content.get())
+                mentionCell.setMentionText(cellContent)
             }
         }
         
@@ -115,7 +91,7 @@ class DetailTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let sectionTitles = ["Media", "Hashtags", "Mentions", "URLs"]
-        if !cells[section].isEmpty{
+        if !cellContents[section].isEmpty{
             return sectionTitles[section]
         }
         else{
@@ -123,17 +99,17 @@ class DetailTableViewController: UITableViewController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let segueIdentifiers = ["search", "openSafari"]
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination
+        
         if let imageVC = destinationVC as? ImageViewController{
             if let cell = sender as? ImageTableViewCell{
                 imageVC.imageURL = cell.imageURL
             }
         }
+        
+        
     }
 
     /*
