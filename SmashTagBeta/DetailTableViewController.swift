@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class DetailTableViewController: UITableViewController {
     
@@ -78,11 +79,19 @@ class DetailTableViewController: UITableViewController {
             }
         }
             
+        else if indexPath.section == 3{
+            cell = tableView.dequeueReusableCell(withIdentifier: "URLMention", for: indexPath)
+            if let mentionCell = cell as? URLTableViewCell{
+                //mentionCell.setMentionText(cellContent.content.get())
+                mentionCell.urlText = cellContent
+            }
+        }
+            
         else{
             cell = tableView.dequeueReusableCell(withIdentifier: "TextMention", for: indexPath)
             if let mentionCell = cell as? TextMentionTableViewCell{
                 //mentionCell.setMentionText(cellContent.content.get())
-                mentionCell.setMentionText(cellContent)
+                mentionCell.mentionText = cellContent
             }
         }
         
@@ -109,7 +118,22 @@ class DetailTableViewController: UITableViewController {
             }
         }
         
-        
+        if let searchVC = destinationVC as? TweetTableViewController{
+            if let cell = sender as? TextMentionTableViewCell{
+                searchVC.searchText = cell.mentionText
+                searchVC.searchTextField.isHidden = true
+            }
+        }
+
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 3{
+            if let url = URL(string: cellContents[indexPath.section][indexPath.row]){
+                let svc = SFSafariViewController(url: url)
+                present(svc, animated: true, completion: nil)
+            }
+        }
     }
 
     /*

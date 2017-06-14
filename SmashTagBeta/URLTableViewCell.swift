@@ -9,11 +9,13 @@
 import UIKit
 
 class URLTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var ULRMentionLabel: UILabel!
     
-    func setURLText(_ text: String){
-        ULRMentionLabel.text = text
+    var urlText: String!{
+        didSet{
+            ULRMentionLabel.text = urlText
+        }
     }
     
     override func awakeFromNib() {
