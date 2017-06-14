@@ -15,25 +15,20 @@ class DetailTableViewController: UITableViewController {
     
     var tweet: Tweet!{
         didSet{
-            //let detailCell = DetailCell(content: .mention("@AlonsoGMolina"))
-            //cells[0][0] = detailCell
             print("Tweet set")
-            for (index, media) in tweet.media.enumerated() {
+            for media in tweet.media {
                 cells[0].append( DetailCell(content: .image(media.url.absoluteString)) )
                 print(media.url.absoluteString)
             }
-            for (index, hashtag) in tweet.hashtags.enumerated() {
-                //cells[1][index] = DetailCell(content: .mention(hashtag.keyword))
+            for hashtag in tweet.hashtags {
                 cells[1].append( DetailCell(content: .mention(hashtag.keyword)) )
                 print(hashtag.keyword)
             }
-            for (index, mention) in tweet.userMentions.enumerated() {
-                //cells[2][index] = DetailCell(content: .mention(mention.keyword))
+            for mention in tweet.userMentions {
                 cells[2].append( DetailCell(content: .mention(mention.keyword)) )
                 print(mention.keyword)
             }
-            for (index, url) in tweet.urls.enumerated() {
-                //cells[3][index] = DetailCell(content: .url( url.keyword ))
+            for url in tweet.urls {
                 cells[3].append( DetailCell(content: .url( url.keyword )) )
                 print(url.keyword)
             }
@@ -45,7 +40,7 @@ class DetailTableViewController: UITableViewController {
         case mention(String)
         case url(String)
         
-        func getContent() -> String{
+        func get() -> String{
             switch self{
             case .image(let text):
                 return text
@@ -93,22 +88,29 @@ class DetailTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TextMention", for: indexPath)
-
-        let detailCell = cells[indexPath.section][indexPath.row]
         
-        if let imageCell = cell as? ImageTableViewCell{
-            let url = URL(fileURLWithPath: detailCell.content.getContent())
-            if let data = try? Data(contentsOf: url){
-                imageCell.setImage(data: data)
+        let cell: UITableViewCell
+        let cellContent = cells[indexPath.section][indexPath.row]
+        
+        if indexPath.section == 0 {
+            cell = tableView.dequeueReusableCell(withIdentifier: "Image", for: indexPath)
+            if let imageCell = cell as? ImageTableViewCell{
+                let url = URL(string: cellContent.content.get())!
+                let data = try? Data(contentsOf: url)
+                imageCell.setImage(data: data!)
             }
         }
-        if let mentionCell = cell as? TextMentionTableViewCell{
-            mentionCell.setMentionText(detailCell.content.getContent())
+            
+        else{
+            cell = tableView.dequeueReusableCell(withIdentifier: "TextMention", for: indexPath)
+            if let mentionCell = cell as? TextMentionTableViewCell{
+                mentionCell.setMentionText(cellContent.content.get())
+            }
         }
-
+        
         return cell
     }
+    
 
     /*
     // Override to support conditional editing of the table view.
