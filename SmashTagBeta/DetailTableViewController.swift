@@ -36,6 +36,22 @@ class DetailTableViewController: UITableViewController {
         }
     }
     
+    /*private struct Content{
+        var contentType: DetailContentType
+    }
+    
+    private enum DetailContentType{
+        case media(MediaItem)
+        case hashtag(String)
+        case mention(String)
+        case url(URL)
+        
+        var Media: MediaItem{
+            
+            }
+        }
+    }*/
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
