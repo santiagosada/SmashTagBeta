@@ -9,16 +9,19 @@
 import Foundation
 
 struct SearchHistory{
-    static var queue = [String](){
-        didSet{
-            print("Did set search history queue")
-        }
+    private static var queue = [String]()
+    private static let size = 100
+    
+    static var items: [String]{
+        return queue
     }
     
     static func addItem(_ name: String){
         var match = false
-        for item in queue{
+        for (index, item) in queue.enumerated(){
             if item.localizedCaseInsensitiveCompare(name) == .orderedSame{
+                queue.remove(at: index)
+                queue.insert(name, at: 0)
                 match = true
                 break
             }
@@ -27,9 +30,20 @@ struct SearchHistory{
             queue.insert(name, at: 0)
         }
         
-        if queue.count > 100{
-            
+        if queue.count > size{
+            queue.removeSubrange(size..<queue.count)
         }
-        
+        print(queue)
     }
+    
+    static func clear(){
+        queue.removeAll()
+    }
+    
+    
 }
+
+
+
+
+

@@ -12,6 +12,12 @@ class HistoryTableViewCell: UITableViewCell {
 
     @IBOutlet weak var HistoryLabel: UILabel!
     
+    var searchedItem: String!{
+        didSet{
+            HistoryLabel.text = searchedItem
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
