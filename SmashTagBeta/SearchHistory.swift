@@ -9,14 +9,29 @@
 import Foundation
 
 struct SearchHistory{
-    private static var queue = [String]()
+    private static var queue: [String]{
+        get{
+            if let dafaultsQueue = defaults.array(forKey: "smashtagSearchHistory"){
+                return dafaultsQueue as! [String]
+            }
+            else{
+                return [String]()
+            }
+        }
+        set{
+            defaults.set(newValue, forKey: "smashtagSearchHistory")
+        }
+    }
     private static let size = 100
+    
+    private static let defaults = UserDefaults.standard
     
     static var items: [String]{
         return queue
     }
     
     static func addItem(_ name: String){
+    
         var match = false
         for (index, item) in queue.enumerated(){
             if item.localizedCaseInsensitiveCompare(name) == .orderedSame{
@@ -33,6 +48,7 @@ struct SearchHistory{
         if queue.count > size{
             queue.removeSubrange(size..<queue.count)
         }
+        defaults.set(queue, forKey: "smashtagSearchHistory")
         print(queue)
     }
     
