@@ -9,6 +9,7 @@
 import Foundation
 
 struct SearchHistory{
+    
     private static var queue: [String]{
         get{
             if let dafaultsQueue = defaults.array(forKey: "smashtagSearchHistory"){
@@ -22,6 +23,7 @@ struct SearchHistory{
             defaults.set(newValue, forKey: "smashtagSearchHistory")
         }
     }
+    
     private static let size = 100
     
     private static let defaults = UserDefaults.standard
@@ -31,29 +33,32 @@ struct SearchHistory{
     }
     
     static func addItem(_ name: String){
-    
+        var tempQueue = queue
         var match = false
-        for (index, item) in queue.enumerated(){
+        
+        for (index, item) in tempQueue.enumerated(){
             if item.localizedCaseInsensitiveCompare(name) == .orderedSame{
-                queue.remove(at: index)
-                queue.insert(name, at: 0)
+                tempQueue.remove(at: index)
+                tempQueue.insert(name, at: 0)
                 match = true
                 break
             }
         }
         if !match{
-            queue.insert(name, at: 0)
+            tempQueue.insert(name, at: 0)
         }
         
-        if queue.count > size{
-            queue.removeSubrange(size..<queue.count)
+        if tempQueue.count > size{
+            tempQueue.removeSubrange(size..<tempQueue.count)
         }
-        defaults.set(queue, forKey: "smashtagSearchHistory")
-        print(queue)
+        print(tempQueue)
+        queue = tempQueue
     }
     
     static func clear(){
-        queue.removeAll()
+        var tempQueue = queue
+        tempQueue.removeAll()
+        queue = tempQueue
     }
     
     
