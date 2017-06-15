@@ -74,6 +74,7 @@ class ImageViewController: UIViewController
         set {
             imageView.image = newValue
             imageView.sizeToFit()
+            
             // careful here because scrollView might be nil
             // (for example, if we're setting our image as part of a prepare)
             // so use optional chaining to do nothing

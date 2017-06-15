@@ -12,6 +12,11 @@ class ImageTableViewCell: UITableViewCell {
 
     @IBOutlet weak var TweetDetailImageView: UIImageView!
     
+    var imageRatio: Double!{
+        didSet{
+        }
+    }
+    
     var imageURL: URL!{
         didSet{
             if let data = try? Data(contentsOf: imageURL){
