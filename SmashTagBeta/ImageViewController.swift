@@ -39,9 +39,8 @@ class ImageViewController: UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let testUrl = URL(string: "http://www.gettyimages.com/gi-resources/images/Embed/new/embed2.jpg")
-        imageURL = testUrl // for demo/testing purposes only
-        //imageURL = DemoURL.stanford // for demo/testing purposes only
+        //let testUrl = URL(string: "http://www.gettyimages.com/gi-resources/images/Embed/new/embed2.jpg")
+        //imageURL = testUrl // for demo/testing purposes only
     }
     
     override func viewWillAppear(_ animated: Bool) {
