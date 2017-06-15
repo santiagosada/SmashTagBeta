@@ -12,7 +12,10 @@ class ImageTableViewCell: UITableViewCell {
 
     @IBOutlet weak var TweetDetailImageView: UIImageView!
     
-    var imageRatio = 0.0
+    var imageRatio: Double!{
+        didSet{
+        }
+    }
     
     var imageURL: URL!{
         didSet{
