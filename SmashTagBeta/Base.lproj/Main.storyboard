@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -114,18 +115,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Image" rowHeight="131" id="QLE-3q-ysE" customClass="ImageTableViewCell" customModule="SmashTagBeta" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="131"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Image" rowHeight="300" id="QLE-3q-ysE" customClass="ImageTableViewCell" customModule="SmashTagBeta" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="300"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QLE-3q-ysE" id="eju-2a-6lf">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="130.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="299.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Iy-EP-cYG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="106"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Iy-EP-cYG">
+                                            <rect key="frame" x="8" y="8" width="359" height="283.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="5Iy-EP-cYG" secondAttribute="height" multiplier="359:283" id="59T-tI-Yxs"/>
+                                            </constraints>
                                         </imageView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="5Iy-EP-cYG" secondAttribute="trailing" id="2fv-mT-5c6"/>
+                                        <constraint firstAttribute="topMargin" secondItem="5Iy-EP-cYG" secondAttribute="top" id="3bM-8N-7E5"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="5Iy-EP-cYG" secondAttribute="bottom" id="ZQK-r8-gMT"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="5Iy-EP-cYG" secondAttribute="leading" id="ajZ-W1-I48"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="TweetDetailImageView" destination="5Iy-EP-cYG" id="Yeg-yA-QPU"/>
@@ -133,7 +142,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextMention" rowHeight="69" id="9Et-rU-7lZ" customClass="TextMentionTableViewCell" customModule="SmashTagBeta" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="159" width="375" height="69"/>
+                                <rect key="frame" x="0.0" y="328" width="375" height="69"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Et-rU-7lZ" id="ZWV-JI-ayb">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="68.5"/>
@@ -159,7 +168,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="URLMention" rowHeight="69" id="OdE-rY-abI" customClass="URLTableViewCell" customModule="SmashTagBeta" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="228" width="375" height="69"/>
+                                <rect key="frame" x="0.0" y="397" width="375" height="69"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OdE-rY-abI" id="EZX-oX-ZxR">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="68.5"/>
