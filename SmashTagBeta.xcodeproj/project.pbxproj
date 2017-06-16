@@ -87,15 +87,15 @@
 			isa = PBXGroup;
 			children = (
 				DE82B8A81EEF6E6B00D1C208 /* Main.storyboard */,
-				DE55B6981EF204AB00D7B353 /* HistoryTableViewCell.swift */,
 				DE2DC74A1EF04FBB00B4B147 /* ImageTableViewCell.swift */,
 				DEC343BC1EF1ECB1009EAE27 /* ImageViewController.swift */,
+				E23985711EF04F9E001070B2 /* DetailTableViewController.swift */,
 				DE2DC74C1EF04FED00B4B147 /* TextMentionTableViewCell.swift */,
 				DE55B6941EF1F50F00D7B353 /* URLTableViewCell.swift */,
-				DE2DC7481EF0348700B4B147 /* TweetTableViewCell.swift */,
 				DE55B6961EF2031800D7B353 /* HistoryTableViewController.swift */,
+				DE55B6981EF204AB00D7B353 /* HistoryTableViewCell.swift */,
+				DE2DC7481EF0348700B4B147 /* TweetTableViewCell.swift */,
 				E239856F1EF034BB001070B2 /* TweetTableViewController.swift */,
-				E23985711EF04F9E001070B2 /* DetailTableViewController.swift */,
 				DE82B8AE1EEF6E6B00D1C208 /* Assets.xcassets */,
 				DE82B8C61EEF6ED300D1C208 /* Supporting Files */,
 				DE82B8B91EEF6EB700D1C208 /* Twitter */,

@@ -22,7 +22,15 @@ class ImageTableViewCell: UITableViewCell {
     var imageURL: URL!{
         didSet{
             if let data = try? Data(contentsOf: imageURL){
-                TweetDetailImageView.image = UIImage(data: data)
+                let imageToDisplay = UIImage(data: data)
+                TweetDetailImageView.image = imageToDisplay
+                let imageWidth = imageToDisplay!.size.width
+                let imageHeight = imageToDisplay!.size.height
+                let ratio = imageWidth / imageHeight
+                print(frame.width)
+                let newHeight = frame.width / ratio
+                print(newHeight)
+                frame.size = CGSize(width: frame.width, height: newHeight)
             }
         }
     }

@@ -127,9 +127,9 @@ class DetailTableViewController: UITableViewController {
                 mentionCell.mentionText = cellContent.getMention()!.keyword
             }
         }
-        
         return cell
     }
+    
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let sectionTitles = ["Media", "Hashtags", "Mentions", "URLs"]
