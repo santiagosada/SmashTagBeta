@@ -17,6 +17,8 @@ class ImageTableViewCell: UITableViewCell {
         }
     }
     
+    //var mediaItem: MediaItem!
+    
     var imageURL: URL!{
         didSet{
             if let data = try? Data(contentsOf: imageURL){

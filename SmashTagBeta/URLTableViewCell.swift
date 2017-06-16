@@ -12,9 +12,9 @@ class URLTableViewCell: UITableViewCell {
     
     @IBOutlet weak var ULRMentionLabel: UILabel!
     
-    var urlText: String!{
+    var url: URL!{
         didSet{
-            ULRMentionLabel.text = urlText
+            ULRMentionLabel.text = url.absoluteString
         }
     }
     

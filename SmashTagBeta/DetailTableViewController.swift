@@ -11,46 +11,62 @@ import SafariServices
 
 class DetailTableViewController: UITableViewController {
     
-    private var cellContents = Array(repeating: [String](), count: 4)
+    private var cellContents = Array(repeating: [DetailContentType](), count: 4)
     
     
     var tweet: Tweet!{
         didSet{
             print("Tweet set")
             for media in tweet.media {
-                cellContents[0].append( media.url.absoluteString )
+                //cellContents[0].append( media.url.absoluteString )
+                cellContents[0].append( DetailContentType.media(media) )
                 print(media.url.absoluteString)
             }
             for hashtag in tweet.hashtags {
-                cellContents[1].append( hashtag.keyword )
+                //cellContents[1].append( hashtag.keyword )
+                cellContents[1].append( DetailContentType.hashtag(hashtag) )
                 print(hashtag.keyword)
             }
             for mention in tweet.userMentions {
-                cellContents[2].append( mention.keyword )
+                //cellContents[2].append( mention.keyword )
+                cellContents[2].append( DetailContentType.mention(mention) )
                 print(mention.keyword)
             }
             for url in tweet.urls {
-                cellContents[3].append( url.keyword )
+                //cellContents[3].append( url.keyword )
+                cellContents[3].append( DetailContentType.url(url) )
                 print(url.keyword)
             }
         }
     }
     
-    /*private struct Content{
-        var contentType: DetailContentType
-    }
+    //private struct DetailContent{
+    //    var contentType: DetailContentType
+    //}
     
     private enum DetailContentType{
         case media(MediaItem)
-        case hashtag(String)
-        case mention(String)
-        case url(URL)
+        case hashtag(Mention)
+        case mention(Mention)
+        case url(Mention)
         
-        var Media: MediaItem{
-            
+        func getMedia() -> MediaItem?{
+            switch self{
+            case .media(let mediaItem):
+                return mediaItem
+            default:
+                return nil
             }
         }
-    }*/
+        func getMention() -> Mention?{
+            switch self{
+            case .hashtag(let mention), .mention(let mention), .url(let mention):
+                return mention
+            default:
+                return nil
+            }
+        }
+    }
     
     
     override func viewDidLoad() {
@@ -90,16 +106,17 @@ class DetailTableViewController: UITableViewController {
             cell = tableView.dequeueReusableCell(withIdentifier: "Image", for: indexPath)
             if let imageCell = cell as? ImageTableViewCell{
                 //let url = URL(string: cellContent.content.get())!
-                let url = URL(string: cellContent)!
+                let url = cellContent.getMedia()!.url
                 imageCell.imageURL = url
+                //imageCell.mediaItem = cellContent.getMedia()!
             }
         }
             
         else if indexPath.section == 3{
             cell = tableView.dequeueReusableCell(withIdentifier: "URLMention", for: indexPath)
-            if let mentionCell = cell as? URLTableViewCell{
+            if let urlCell = cell as? URLTableViewCell{
                 //mentionCell.setMentionText(cellContent.content.get())
-                mentionCell.urlText = cellContent
+                urlCell.url = URL(string: cellContent.getMention()!.keyword)
             }
         }
             
@@ -107,7 +124,7 @@ class DetailTableViewController: UITableViewController {
             cell = tableView.dequeueReusableCell(withIdentifier: "TextMention", for: indexPath)
             if let mentionCell = cell as? TextMentionTableViewCell{
                 //mentionCell.setMentionText(cellContent.content.get())
-                mentionCell.mentionText = cellContent
+                mentionCell.mentionText = cellContent.getMention()!.keyword
             }
         }
         
@@ -145,7 +162,7 @@ class DetailTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 3{
-            if let url = URL(string: cellContents[indexPath.section][indexPath.row]){
+            if let url = URL(string: cellContents[indexPath.section][indexPath.row].getMention()!.keyword){
                 let svc = SFSafariViewController(url: url)
                 present(svc, animated: true, completion: nil)
             }
