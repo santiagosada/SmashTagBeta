@@ -216,7 +216,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GPu-Zs-stl">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -316,25 +316,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="History" rowHeight="69" id="Y1h-E2-f6u" customClass="HistoryTableViewCell" customModule="SmashTagBeta" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="History" rowHeight="69" id="Y1h-E2-f6u" customClass="HistoryTableViewCell" customModule="SmashTagBeta" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="69"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Y1h-E2-f6u" id="F2i-hD-8T7">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="68.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="308" height="68.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History item" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="clx-Oy-7z7">
-                                            <rect key="frame" x="8" y="8" width="359" height="52.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History item" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="clx-Oy-7z7">
+                                            <rect key="frame" x="8" y="24" width="292" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="leadingMargin" secondItem="clx-Oy-7z7" secondAttribute="leading" id="ANZ-pX-DYJ"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="clx-Oy-7z7" secondAttribute="bottom" id="OTl-iQ-SNo"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="clx-Oy-7z7" secondAttribute="trailing" id="UwJ-ZB-HuK"/>
-                                        <constraint firstAttribute="topMargin" secondItem="clx-Oy-7z7" secondAttribute="top" id="eFi-HG-VrO"/>
+                                        <constraint firstItem="clx-Oy-7z7" firstAttribute="leading" secondItem="F2i-hD-8T7" secondAttribute="leadingMargin" id="ExE-8X-xeY"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="clx-Oy-7z7" secondAttribute="trailing" id="NEr-1f-4CS"/>
+                                        <constraint firstItem="clx-Oy-7z7" firstAttribute="centerY" secondItem="F2i-hD-8T7" secondAttribute="centerY" id="bc1-Wv-ven"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -412,6 +411,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nlP-mM-NVY"/>
+        <segue reference="U80-ip-HpR"/>
     </inferredMetricsTieBreakers>
 </document>
