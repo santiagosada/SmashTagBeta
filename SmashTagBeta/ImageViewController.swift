@@ -39,8 +39,6 @@ class ImageViewController: UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //let testUrl = URL(string: "http://www.gettyimages.com/gi-resources/images/Embed/new/embed2.jpg")
-        //imageURL = testUrl // for demo/testing purposes only
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,14 +71,40 @@ class ImageViewController: UIViewController
         }
         set {
             imageView.image = newValue
-            imageView.sizeToFit()
-            
-            // careful here because scrollView might be nil
-            // (for example, if we're setting our image as part of a prepare)
-            // so use optional chaining to do nothing
-            // if our scrollView outlet has not yet been set
-            scrollView?.contentSize = imageView.frame.size
+            if image != nil {
+                layoutImage(newValue!)
+            }
         }
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        print("you're kinda fucked")
+        if image != nil {
+            layoutImage(image!)
+        }
+    }
+    
+    private func layoutImage(_ image: UIImage) {
+        let screenWidth = scrollView?.frame.width
+        let screenHeight = scrollView?.frame.height
+        print("HEEEEEEEEEERE!!!")
+        if scrollView != nil {
+            let imageRatio = image.size.width / image.size.height
+            if imageRatio > 1 { //landscape photo
+                let landscapeWidth = screenHeight! * imageRatio
+                imageView.frame = CGRect(x: 0, y: 0, width: landscapeWidth, height: screenHeight!)
+            } else { //portrait or square
+                let portraitHight = screenWidth! / imageRatio
+                imageView.frame = CGRect(x: 0, y: 0, width: screenWidth!, height: portraitHight)
+            }
+            imageView.contentMode = UIViewContentMode.scaleAspectFill
+        }
+        // careful here because scrollView might be nil
+        // (for example, if we're setting our image as part of a prepare)
+        // so use optional chaining to do nothing
+        // if our scrollView outlet has not yet been set
+        scrollView?.contentSize = imageView.frame.size
     }
 }
 
