@@ -77,7 +77,7 @@ class ImageViewController: UIViewController
         }
     }
     
-    override func viewWillLayoutSubviews() {
+    override func viewDidLayoutSubviews() {
         super.viewWillLayoutSubviews()
         print("you're kinda fucked")
         if image != nil {
@@ -90,8 +90,9 @@ class ImageViewController: UIViewController
         let screenHeight = scrollView?.frame.height
         print("HEEEEEEEEEERE!!!")
         if scrollView != nil {
+            let screenRatio = screenWidth! / screenHeight!
             let imageRatio = image.size.width / image.size.height
-            if imageRatio > 1 { //landscape photo
+            if imageRatio > screenRatio { //landscape photo
                 let landscapeWidth = screenHeight! * imageRatio
                 imageView.frame = CGRect(x: 0, y: 0, width: landscapeWidth, height: screenHeight!)
             } else { //portrait or square
