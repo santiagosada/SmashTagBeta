@@ -55,7 +55,7 @@ class ImageViewController: UIViewController
             // to zoom we have to handle viewForZooming(in scrollView:)
             scrollView.delegate = self
             // and we must set our minimum and maximum zoom scale
-            scrollView.minimumZoomScale = 0.1
+            scrollView.minimumZoomScale = 0.5
             scrollView.maximumZoomScale = 1.5
             // most important thing to set in UIScrollView is contentSize
             scrollView.contentSize = imageView.frame.size
@@ -79,7 +79,6 @@ class ImageViewController: UIViewController
     
     override func viewDidLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        print("you're kinda fucked")
         if image != nil {
             layoutImage(image!)
         }
@@ -88,7 +87,6 @@ class ImageViewController: UIViewController
     private func layoutImage(_ image: UIImage) {
         let screenWidth = scrollView?.frame.width
         let screenHeight = scrollView?.frame.height
-        print("HEEEEEEEEEERE!!!")
         if scrollView != nil {
             let screenRatio = screenWidth! / screenHeight!
             let imageRatio = image.size.width / image.size.height
