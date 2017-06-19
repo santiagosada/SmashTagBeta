@@ -72,6 +72,9 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate
                     if request == self?.lastTwitterRequest {
                         self?.tweets.insert(newTweets, at:0)
                         self?.tableView.insertSections([0], with: .fade)
+                        let context = AppDelegate.viewContext
+                        let query = CDQuery(context: context)
+                        query.queriedTerm = self?.searchText
                     }
                     self?.refreshControl?.endRefreshing() // REFRESHING
                 }

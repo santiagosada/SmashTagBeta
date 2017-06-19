@@ -25,6 +25,7 @@
 		DE82B8C41EEF6EB700D1C208 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE82B8BE1EEF6EB700D1C208 /* Tweet.swift */; };
 		DE82B8C51EEF6EB700D1C208 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE82B8BF1EEF6EB700D1C208 /* User.swift */; };
 		DEC343BD1EF1ECB1009EAE27 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC343BC1EF1ECB1009EAE27 /* ImageViewController.swift */; };
+		E22560181EF5ACB80010302E /* CDQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22560171EF5ACB80010302E /* CDQuery.swift */; };
 		E23985701EF034BB001070B2 /* TweetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E239856F1EF034BB001070B2 /* TweetTableViewController.swift */; };
 		E23985721EF04F9E001070B2 /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23985711EF04F9E001070B2 /* DetailTableViewController.swift */; };
 		E2526B681EF202C800F55DDA /* SearchHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2526B671EF202C800F55DDA /* SearchHistory.swift */; };
@@ -51,6 +52,7 @@
 		DE82B8BE1EEF6EB700D1C208 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		DE82B8BF1EEF6EB700D1C208 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DEC343BC1EF1ECB1009EAE27 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		E22560171EF5ACB80010302E /* CDQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDQuery.swift; sourceTree = "<group>"; };
 		E239856F1EF034BB001070B2 /* TweetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewController.swift; sourceTree = "<group>"; };
 		E23985711EF04F9E001070B2 /* DetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
 		E2526B671EF202C800F55DDA /* SearchHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchHistory.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				DE82B8C61EEF6ED300D1C208 /* Supporting Files */,
 				DE82B8B91EEF6EB700D1C208 /* Twitter */,
 				E2526B671EF202C800F55DDA /* SearchHistory.swift */,
+				E22560171EF5ACB80010302E /* CDQuery.swift */,
 			);
 			path = SmashTagBeta;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				E23985721EF04F9E001070B2 /* DetailTableViewController.swift in Sources */,
 				DE82B8A51EEF6E6B00D1C208 /* AppDelegate.swift in Sources */,
 				DE2DC74B1EF04FBB00B4B147 /* ImageTableViewCell.swift in Sources */,
+				E22560181EF5ACB80010302E /* CDQuery.swift in Sources */,
 				DE55B6991EF204AB00D7B353 /* HistoryTableViewCell.swift in Sources */,
 				DE82B8C21EEF6EB700D1C208 /* NSDictionary+KeyPathConvenience.swift in Sources */,
 				DE55B6951EF1F50F00D7B353 /* URLTableViewCell.swift in Sources */,
