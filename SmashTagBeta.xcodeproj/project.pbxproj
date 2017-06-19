@@ -24,6 +24,8 @@
 		DE82B8C31EEF6EB700D1C208 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE82B8BD1EEF6EB700D1C208 /* Request.swift */; };
 		DE82B8C41EEF6EB700D1C208 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE82B8BE1EEF6EB700D1C208 /* Tweet.swift */; };
 		DE82B8C51EEF6EB700D1C208 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE82B8BF1EEF6EB700D1C208 /* User.swift */; };
+		DE9FA84A1EF58ED700D88EF2 /* PopularTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9FA8491EF58ED700D88EF2 /* PopularTableViewController.swift */; };
+		DE9FA84C1EF58EF400D88EF2 /* PopularTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9FA84B1EF58EF400D88EF2 /* PopularTableViewCell.swift */; };
 		DEC343BD1EF1ECB1009EAE27 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC343BC1EF1ECB1009EAE27 /* ImageViewController.swift */; };
 		E22560181EF5ACB80010302E /* CDQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22560171EF5ACB80010302E /* CDQuery.swift */; };
 		E23985701EF034BB001070B2 /* TweetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E239856F1EF034BB001070B2 /* TweetTableViewController.swift */; };
@@ -51,6 +53,8 @@
 		DE82B8BD1EEF6EB700D1C208 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		DE82B8BE1EEF6EB700D1C208 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		DE82B8BF1EEF6EB700D1C208 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		DE9FA8491EF58ED700D88EF2 /* PopularTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularTableViewController.swift; sourceTree = "<group>"; };
+		DE9FA84B1EF58EF400D88EF2 /* PopularTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularTableViewCell.swift; sourceTree = "<group>"; };
 		DEC343BC1EF1ECB1009EAE27 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		E22560171EF5ACB80010302E /* CDQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDQuery.swift; sourceTree = "<group>"; };
 		E239856F1EF034BB001070B2 /* TweetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +93,8 @@
 			isa = PBXGroup;
 			children = (
 				DE82B8A81EEF6E6B00D1C208 /* Main.storyboard */,
+				DE9FA84B1EF58EF400D88EF2 /* PopularTableViewCell.swift */,
+				DE9FA8491EF58ED700D88EF2 /* PopularTableViewController.swift */,
 				DE2DC74A1EF04FBB00B4B147 /* ImageTableViewCell.swift */,
 				DEC343BC1EF1ECB1009EAE27 /* ImageViewController.swift */,
 				E23985711EF04F9E001070B2 /* DetailTableViewController.swift */,
@@ -207,12 +213,14 @@
 			files = (
 				DE82B8C31EEF6EB700D1C208 /* Request.swift in Sources */,
 				E23985701EF034BB001070B2 /* TweetTableViewController.swift in Sources */,
+				DE9FA84C1EF58EF400D88EF2 /* PopularTableViewCell.swift in Sources */,
 				DE82B8C11EEF6EB700D1C208 /* MediaItem.swift in Sources */,
 				DE82B8C41EEF6EB700D1C208 /* Tweet.swift in Sources */,
 				DE82B8C51EEF6EB700D1C208 /* User.swift in Sources */,
 				DE82B8AD1EEF6E6B00D1C208 /* SmashTagBeta.xcdatamodeld in Sources */,
 				DEC343BD1EF1ECB1009EAE27 /* ImageViewController.swift in Sources */,
 				E2526B681EF202C800F55DDA /* SearchHistory.swift in Sources */,
+				DE9FA84A1EF58ED700D88EF2 /* PopularTableViewController.swift in Sources */,
 				E23985721EF04F9E001070B2 /* DetailTableViewController.swift in Sources */,
 				DE82B8A51EEF6E6B00D1C208 /* AppDelegate.swift in Sources */,
 				DE2DC74B1EF04FBB00B4B147 /* ImageTableViewCell.swift in Sources */,

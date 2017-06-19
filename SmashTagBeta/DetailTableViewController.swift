@@ -75,7 +75,7 @@ class DetailTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
         
         tableView.estimatedRowHeight = tableView.rowHeight
-        tableView.rowHeight = UITableViewAutomaticDimension
+        //tableView.rowHeight = UITableViewAutomaticDimension
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
@@ -128,6 +128,18 @@ class DetailTableViewController: UITableViewController {
             }
         }
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        if indexPath.section == 0 {
+            let imageRatio = cellContents[0][indexPath.row].getMedia()?.aspectRatio
+            let newHeight = Double(tableView.frame.width) / imageRatio!
+            return CGFloat(newHeight)//*/
+            //return UITableViewAutomaticDimension
+        } else {
+           return UITableViewAutomaticDimension
+        }
     }
     
     

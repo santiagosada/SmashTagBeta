@@ -39,8 +39,6 @@ class ImageViewController: UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //let testUrl = URL(string: "http://www.gettyimages.com/gi-resources/images/Embed/new/embed2.jpg")
-        //imageURL = testUrl // for demo/testing purposes only
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,7 +55,7 @@ class ImageViewController: UIViewController
             // to zoom we have to handle viewForZooming(in scrollView:)
             scrollView.delegate = self
             // and we must set our minimum and maximum zoom scale
-            scrollView.minimumZoomScale = 0.1
+            scrollView.minimumZoomScale = 0.5
             scrollView.maximumZoomScale = 1.5
             // most important thing to set in UIScrollView is contentSize
             scrollView.contentSize = imageView.frame.size
@@ -73,14 +71,39 @@ class ImageViewController: UIViewController
         }
         set {
             imageView.image = newValue
-            imageView.sizeToFit()
-            
-            // careful here because scrollView might be nil
-            // (for example, if we're setting our image as part of a prepare)
-            // so use optional chaining to do nothing
-            // if our scrollView outlet has not yet been set
-            scrollView?.contentSize = imageView.frame.size
+            if image != nil {
+                layoutImage(newValue!)
+            }
         }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        if image != nil {
+            layoutImage(image!)
+        }
+    }
+    
+    private func layoutImage(_ image: UIImage) {
+        let screenWidth = scrollView?.frame.width
+        let screenHeight = scrollView?.frame.height
+        if scrollView != nil {
+            let screenRatio = screenWidth! / screenHeight!
+            let imageRatio = image.size.width / image.size.height
+            if imageRatio > screenRatio { //landscape photo
+                let landscapeWidth = screenHeight! * imageRatio
+                imageView.frame = CGRect(x: 0, y: 0, width: landscapeWidth, height: screenHeight!)
+            } else { //portrait or square
+                let portraitHight = screenWidth! / imageRatio
+                imageView.frame = CGRect(x: 0, y: 0, width: screenWidth!, height: portraitHight)
+            }
+            imageView.contentMode = UIViewContentMode.scaleAspectFill
+        }
+        // careful here because scrollView might be nil
+        // (for example, if we're setting our image as part of a prepare)
+        // so use optional chaining to do nothing
+        // if our scrollView outlet has not yet been set
+        scrollView?.contentSize = imageView.frame.size
     }
 }
 
