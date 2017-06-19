@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class PopularTableViewController: UITableViewController {
 
@@ -24,28 +25,69 @@ class PopularTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+   
+    var mentions: [(name: String, count: Int)] = []
+    
+    var queriedTerm: String!{
+        didSet{
+            let context = AppDelegate.viewContext
+            let request: NSFetchRequest<CDMention> = CDMention.fetchRequest()
+            
+            request.predicate = NSPredicate(format: "(query.queriedTerm matches[c] %@) AND (instances >= 2)", queriedTerm)
+            
+            request.sortDescriptors = [
+                NSSortDescriptor(key: "instances", ascending: false),
+                NSSortDescriptor(key: "text", ascending: false)]
+            
+            if let resultMenions = try? context.fetch(request){
+                for mention in resultMenions{
+                    mentions.append((mention.text!, Int(mention.instances)))
+                }
+            }
+        }
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return mentions.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Popular", for: indexPath)
 
-        // Configure the cell...
+        if let popularCell = cell as? PopularTableViewCell{
+            popularCell.mentionName = mentions[indexPath.row].name
+            popularCell.mentionCount = mentions[indexPath.row].count
+        }
 
         return cell
     }
-    */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var destinationVC = segue.destination
+        
+        if let navigationVC = destinationVC as? UINavigationController{
+            if navigationVC.visibleViewController != nil{
+                destinationVC = navigationVC.visibleViewController!
+            }
+        }
+        
+        if let searchVC = destinationVC as? TweetTableViewController{
+            if let searchedCell = sender as? PopularTableViewCell{
+                searchVC.searchText = searchedCell.mentionName
+                searchVC.searchTextField.isHidden = true
+            }
+        }
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.

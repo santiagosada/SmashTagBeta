@@ -51,13 +51,33 @@ class HistoryTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC = segue.destination
-        if let searchVC = destinationVC as? TweetTableViewController{
-            if let searchedCell = sender as? HistoryTableViewCell{
-                searchVC.searchText = searchedCell.searchedItem
-                searchVC.searchTextField.isHidden = true
+        var destinationVC = segue.destination
+        
+        if let navigationVC = destinationVC as? UINavigationController{
+            if navigationVC.visibleViewController != nil{
+                destinationVC = navigationVC.visibleViewController!
             }
         }
+        
+        switch segue.identifier! {
+        case "SearchItem":
+            if let searchVC = destinationVC as? TweetTableViewController{
+                if let searchedCell = sender as? HistoryTableViewCell{
+                    searchVC.searchText = searchedCell.searchedItem
+                    searchVC.searchTextField.isHidden = true
+                }
+            }
+        case "showItemInformation":
+            if let popularVC = destinationVC as? PopularTableViewController{
+                if let searchedCell = sender as? HistoryTableViewCell{
+                    popularVC.queriedTerm = searchedCell.searchedItem
+                }
+            }
+        default:
+            break
+        }
+        
+        
     }
 
     /*

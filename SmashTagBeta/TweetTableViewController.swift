@@ -34,7 +34,7 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate
             tableView.reloadData()
             searchForTweets()
             title = searchText
-            SearchHistory.addItem(searchText!)
+            //SearchHistory.addItem(searchText!)
         }
     }
     
@@ -72,9 +72,7 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate
                     if request == self?.lastTwitterRequest {
                         self?.tweets.insert(newTweets, at:0)
                         self?.tableView.insertSections([0], with: .fade)
-                        let context = AppDelegate.viewContext
-                        let query = CDQuery(context: context)
-                        query.queriedTerm = self?.searchText
+                        SearchHistory.addItem((self?.searchText!)!, withTweets: newTweets)
                     }
                     self?.refreshControl?.endRefreshing() // REFRESHING
                 }
@@ -159,12 +157,14 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination
+        
         if let destinationDetail = destinationVC as? DetailTableViewController{
             if let sender = sender as? TweetTableViewCell{
                 print(sender.tweet!)
                 destinationDetail.tweet = sender.tweet!
             }
         }
+        
     }
 }
 

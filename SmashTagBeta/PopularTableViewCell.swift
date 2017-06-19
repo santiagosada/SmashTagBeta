@@ -20,5 +20,29 @@ class PopularTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    @IBOutlet weak var mentionLabel: UILabel!
+    
+    @IBOutlet weak var mentionCountLabel: UILabel!
+    
+    var mentionName: String?{
+        get{
+            return mentionLabel.text
+        }
+        set{
+            mentionLabel.text = newValue
+        }
+    }
+    
+    var mentionCount: Int?{
+        get{
+            return Int(mentionCountLabel.text!)//Maybe arreglar
+        }
+        set{
+            if newValue != nil {
+                mentionCountLabel.text = String(newValue!)
+            }
+        }
+    }
+    
 
 }

@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16F73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="CDMention" representedClassName="CDMention" syncable="YES" codeGenerationType="class">
-        <attribute name="instances" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    <entity name="CDMention" representedClassName=".CDMention" syncable="YES" codeGenerationType="class">
+        <attribute name="instances" optional="YES" attributeType="Integer 32" defaultValueString="1" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="query" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDQuery" inverseName="mentions" inverseEntity="CDQuery" syncable="YES"/>
-        <relationship name="tweets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDPseudoTweet" inverseName="mentions" inverseEntity="CDPseudoTweet" syncable="YES"/>
     </entity>
-    <entity name="CDPseudoTweet" representedClassName="CDPseudoTweet" syncable="YES" codeGenerationType="class">
+    <entity name="CDPseudoTweet" representedClassName=".CDPseudoTweet" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="mentions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDMention" inverseName="tweets" inverseEntity="CDMention" syncable="YES"/>
         <relationship name="query" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDQuery" inverseName="tweets" inverseEntity="CDQuery" syncable="YES"/>
     </entity>
-    <entity name="CDQuery" representedClassName="CDQuery" syncable="YES" codeGenerationType="category">
+    <entity name="CDQuery" representedClassName=".CDQuery" syncable="YES" codeGenerationType="category">
         <attribute name="queriedTerm" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="mentions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDMention" inverseName="query" inverseEntity="CDMention" syncable="YES"/>
         <relationship name="tweets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDPseudoTweet" inverseName="query" inverseEntity="CDPseudoTweet" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CDPseudoTweet" positionX="-19559" positionY="-16423" width="128" height="88"/>
-        <element name="CDMention" positionX="-19217" positionY="-16438" width="128" height="103"/>
-        <element name="CDQuery" positionX="-19388" positionY="-16596" width="128" height="88"/>
+        <element name="CDQuery" positionX="-26604" positionY="-16722" width="128" height="88"/>
+        <element name="CDPseudoTweet" positionX="-26354" positionY="-16668" width="128" height="73"/>
+        <element name="CDMention" positionX="-26354" positionY="-16765" width="128" height="88"/>
     </elements>
 </model>
